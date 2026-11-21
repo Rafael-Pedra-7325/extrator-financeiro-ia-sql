@@ -1,3 +1,4 @@
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://api-health-monitor-ia.streamlit.app/)
 # 🧾 Extrator Inteligente de Cobranças e Recibos para SQL
 
 Aplicação desenvolvida em **Python**, **SQL (SQLite)** e **Streamlit** que automatiza a entrada de dados financeiros a partir de faturas, recibos em texto ou PDFs, estruturando informações via **API REST de Inteligência Artificial** e persistindo tudo em um banco relacional com painel analítico em tempo real.
