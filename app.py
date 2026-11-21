@@ -54,10 +54,14 @@ st.caption(
     "via API REST de IA Generativa."
 )
 
-# Sidebar: configuração opcional da chave
+# Sidebar: configuração opcional da chave com proteção contra ausência de secrets.toml
 with st.sidebar:
     st.header("⚙️ Configuração")
-    secret_key = st.secrets.get("GEMINI_API_KEY", "") if hasattr(st, "secrets") else ""
+    try:
+        secret_key = st.secrets.get("GEMINI_API_KEY", "")
+    except Exception:
+        secret_key = ""
+
     user_key = st.text_input(
         "Gemini API Key (opcional)",
         value=secret_key,
@@ -66,7 +70,12 @@ with st.sidebar:
     )
     st.markdown("---")
     st.markdown("**Stack do Projeto:**")
-    st.markdown("- **Linguagem:** Python 3.11+\n- **Banco de Dados:** SQLite (SQL puro)\n- **Integração:** API REST (JSON)\n- **Interface:** Streamlit")
+    st.markdown(
+        "- **Linguagem:** Python 3.11+\n"
+        "- **Banco de Dados:** SQLite (SQL puro)\n"
+        "- **Integração:** API REST (JSON)\n"
+        "- **Interface:** Streamlit"
+    )
 
 # Bloco 1: Entrada de Documento
 col_entrada, col_preview = st.columns([1.2, 1])
